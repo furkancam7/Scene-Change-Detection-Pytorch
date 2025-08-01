@@ -1,4 +1,5 @@
 # Sahne Değişikliği Tespiti (Scene Change Detection)
+Dataset:https://drive.google.com/drive/folders/1qxB-1_EOuZXcNuj6hYhUgq_3kTtSuD-y?usp=sharing
 
 Bu proje, iki sahne arasındaki değişiklikleri tespit etmek ve lokalize etmek için deep learning tabanlı bir sistem geliştirir. PyTorch kullanılarak geliştirilmiş U-Net ve ResNet tabanlı modeller ile piksel seviyesinde değişiklik tespiti yapılır.
 
