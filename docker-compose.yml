@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  scene-change-detection:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: scd-training
+    volumes:
+      - ./dataset:/app/dataset
+      - ./checkpoints:/app/checkpoints
+      - ./test_results:/app/test_results
+      - ./runs:/app/runs
+      - ./logs:/app/logs
+      - ./configs:/app/configs
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+    networks:
+      - scd-network
+    stdin_open: true
+    tty: true
+    runtime: nvidia 
+    
+  tensorboard:
+    image: tensorflow/tensorflow:latest
+    container_name: scd-tensorboard
+    command: tensorboard --logdir=/logs --host=0.0.0.0 --port=6006
+    ports:
+      - "6006:6006"
+    volumes:
+      - ./runs:/logs
+    networks:
+      - scd-network
+    depends_on:
+      - scene-change-detection
+
+networks:
+  scd-network:
+    driver: bridge

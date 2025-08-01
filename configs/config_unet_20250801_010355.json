@@ -1,0 +1,15 @@
+{
+  "model_name": "unet",
+  "dataset_path": "dataset",
+  "num_epochs": 5,
+  "batch_size": 4,
+  "learning_rate": 0.01,
+  "weight_decay": 0.0001,
+  "optimizer": "adam",
+  "bce_weight": 0.5,
+  "dice_weight": 0.5,
+  "train_split": 0.8,
+  "num_workers": 2,
+  "early_stopping_patience": 10,
+  "early_stopping_min_delta": 0.001
+}
